@@ -21,6 +21,28 @@ const Body = () => {
         "https://i.imgur.com/vxcTbHn.png",
     },
   ];
+  const userSkills = [
+    {
+      id: 1,
+      name: "Java",
+      version: "11",
+      description:
+        "Java é uma linguagem de programação e plataforma computacional lançada pela primeira vez pela Sun Microsystems em 1995.",
+      image_url:
+        "https://i.imgur.com/vxcTbHn.png",
+        skillLevel: 2
+    },
+    {
+      id: 2,
+      name: "Javascript",
+      version: "11",
+      description:
+        "JavaScript é uma linguagem de script orientada a objetos, multiplataforma. É uma linguagem pequena e leve. Dentro de um ambiente de host (por exemplo, um navegador web) o JavaScript pode ser ligado aos objetos deste ambiente para prover um controle programático sobre eles.",
+      image_url:
+        "https://i.imgur.com/vxcTbHn.png",
+        skillLevel: 5
+    },
+  ];
 
   return (
     <div className="mb-3 col-10 mx-auto border p-5">
@@ -61,7 +83,17 @@ const Body = () => {
       </div>
         
         <section className="my-3">
-            <CardSkill />
+            { userSkills.map((item) => {
+                return (
+                    <CardSkill
+                        source={item.image_url}
+                        skillName={item.name}
+                        version={item.version}
+                        level={item.skillLevel}
+                        skillDescription={item.description}
+                    />
+                )
+            }) }
         </section>
 
     </div>
